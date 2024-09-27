@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 
 fun main() {
+  // using in state management: UI state (ViewModel), ....
   val subject: BehaviorSubject<Int> = BehaviorSubject.createDefault<Int>(0)
 
   println("Values is ${subject.value}")
