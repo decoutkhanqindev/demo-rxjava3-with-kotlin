@@ -28,7 +28,7 @@ fun main() {
   compositeDisposable.addAll(disposableTime, disposableTime1)
 
   println("before disposableTime uses dispose() isDisposed=${disposableTime.isDisposed}")
-  println("before disposableTime1 uses dispose() isDisposed=${disposableTime.isDisposed}")
+  println("before disposableTime1 uses dispose() isDisposed=${disposableTime1.isDisposed}")
 
   Thread.sleep(3000)
 
@@ -39,5 +39,5 @@ fun main() {
   Thread.sleep(5000)
 
   println("after disposableTime uses dispose() isDisposed=${disposableTime.isDisposed}")
-  println("after disposableTime1 uses dispose() isDisposed=${disposableTime.isDisposed}")
+  println("after disposableTime1 uses dispose() isDisposed=${disposableTime1.isDisposed}")
 }
