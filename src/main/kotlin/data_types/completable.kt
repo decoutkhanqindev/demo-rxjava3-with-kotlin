@@ -7,7 +7,7 @@ private fun updateUser(user: User): Completable {
   return Completable.fromCallable {
     println("updateUser: current thread is ${Thread.currentThread().name}")
       when (user.id) {
-        0 -> null // Completable can return anything Completable<?>
+        0 -> null // Completable can return anything because of Completable<?>
         else -> throw RuntimeException("Error when updating user $user")
     }
   }.subscribeOn(Schedulers.io())
