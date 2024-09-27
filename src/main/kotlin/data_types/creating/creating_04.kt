@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit
 
 fun main() {
   println("Start timer.....")
-  // timer will delay n seconds and push 1 value is 0L and complete
+  // timer will delay n seconds and emit 1 value is 0L and complete
   Observable.timer(/* delay = */ 5, /* unit = */ TimeUnit.SECONDS)
     .materialize()
     .subscribe(::println)
@@ -15,7 +15,7 @@ fun main() {
   printSeparator()
 
   println("Start interval.....")
-  // interval will delay every n seconds and push 1 value and repeat
+  // interval will delay every n seconds and emit 1 value and repeat
   val disposable: Disposable =
     Observable.interval(/* initialDelay = */ 2, /* period = */ 3, /* unit = */ TimeUnit.SECONDS)
       .materialize()
