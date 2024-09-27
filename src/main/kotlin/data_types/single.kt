@@ -30,4 +30,5 @@ fun main() {
   )
 
   Thread.sleep(2000)
+  println("End: current thread is ${Thread.currentThread().name}")
 }
