@@ -1,18 +1,17 @@
-package org.example.data_types.creating
+package org.example.creating
 
 import io.reactivex.rxjava3.core.Notification
 import io.reactivex.rxjava3.core.Observable
-import kotlin.Int
 import kotlin.random.Random
 
 fun main() {
-  val coldObservable: Observable<Int> = Observable.defer {
-    println("Call lambda outer.... ${Thread.currentThread()}")
-    Observable.fromCallable {
-      println("Call lambda inner.... ${Thread.currentThread()}")
-      Thread.sleep(1000)
-      Random.nextInt()
-    }
+  // lambda will call when it subscribes and not share with other subscribers
+  // -> will init observable with independent logic
+  // -> cold observable
+  val coldObservable: Observable<Int> = Observable.fromCallable {
+    println("Call lambda.... ${Thread.currentThread()}")
+    Thread.sleep(1000)
+    Random.nextInt()
   }
 
   println("Before subscribe.... ${Thread.currentThread()}")

@@ -1,4 +1,4 @@
-package org.example.data_types.creating
+package org.example.creating
 
 import io.reactivex.rxjava3.core.Observable
 import java.util.concurrent.TimeUnit
@@ -19,10 +19,10 @@ fun main() {
       println("Subscribe to observable 2.....${Thread.currentThread()}")
     }
 
-  // concat will emit 2 observable to 1 observable, first observable must onComplete ~ emitted so other observable just can emit
-  val concatResult: Observable<String> =
-    Observable.concat(observable1, observable2, Observable.just("[3] last"))
-  concatResult.materialize().subscribe(::println)
+  // zip will aggregate 2 observables together into 1 common observable and it follows the index
+  val zipped: Observable<String> =
+    Observable.zip(observable1, observable2, { t1, t2 -> "$t1, $t2" })
+  zipped.materialize().subscribe(::println)
 
   Thread.sleep(10000)
 }
