@@ -27,9 +27,9 @@ fun main() {
 
   Thread.sleep(1000)
 
-  // only observer 2 can receive 2 latest value
   val disposable2: Disposable = subject.subscribe { v: Int? -> println("Observer 2 received: $v") }
-  // observer 1 and observer 2 can receive these values
+  // observer 2 can receive 2 latest value
+  // both observer 1 and observer 2 can receive these values
   subject.onNext(7) // Buffer[6, 7]
   subject.onNext(8) // Buffer[7, 8]
   subject.onNext(9) // Buffer[8, 9]
