@@ -54,6 +54,7 @@ fun main() {
 
   Thread.sleep(1000)
 
+  // no observer can receive 2 latest value
   // no observers can receive these values
   subject.onNext(13) // Buffer[12, 13]
   subject.onNext(14) // Buffer[13, 14]
