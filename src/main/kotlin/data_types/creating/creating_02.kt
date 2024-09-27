@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 import kotlin.random.Random
 
 fun main() {
-  // lambda will call when it subscribed and not share with other subscribers
+  // lambda will call when it subscribes and not share with other subscribers
   // -> will init observable with independent logic
   // -> cold observable
   val coldObservable: Observable<Int> = Observable.fromCallable {
