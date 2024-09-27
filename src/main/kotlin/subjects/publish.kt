@@ -21,7 +21,7 @@ fun main() {
   Thread.sleep(1000)
 
   val disposable2: Disposable = subject.subscribe { v: Int? -> println("Observer 2 received: $v") }
-  // observer 1 and observer 2 can receive these values
+  // both observer 1 and observer 2 can receive these values
   subject.onNext(7)
   subject.onNext(8)
   subject.onNext(9)
@@ -34,9 +34,6 @@ fun main() {
   subject.onNext(10)
   subject.onNext(11)
   subject.onNext(12)
-
-  Thread.sleep(1000)
-
   // observer 1 is disposed
   disposable1.dispose()
 
